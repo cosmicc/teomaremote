@@ -15,6 +15,7 @@ alias vi=vim
 alias ports='netstat -tulanp'
 alias c='clear'
 alias reboot='sudo reboot'
+alias restart='sudo reboot'
 alias update='sudo apt update && sudo apt upgrade'
 alias apt='sudo apt'
 alias cpuinfo='lscpu'
@@ -27,3 +28,4 @@ alias wget='wget -c'
 alias df='df -H'
 alias du='du -ch'
 alias top='atop'
+set fish_greeting ""
