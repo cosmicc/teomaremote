@@ -7,7 +7,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Define the file path
-file_path="/boot/wpa_supplicant.conf"
+file_path="/etc/wpa_supplicant/wpa_supplicant.conf"
 
 # Prompt for SSID
 read -p "Enter the SSID (network name): " ssid
@@ -31,8 +31,8 @@ echo "$contents" >> "$file_path"
 
 # Provide some feedback
 if [ -e "$file_path" ]; then
-    echo "Wireless network added successfully, rebooting device"
-    reboot
+    echo "Wireless network added successfully, restarting wifi"
+    systemctl restart wpa_supplicant
 else
-    echo "Failed to create add wireless network."
+    echo "Failed to add the wireless network."
 fi
