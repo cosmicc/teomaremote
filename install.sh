@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y  install mtr speedtest-cli wavemon traceroute arping netcat nmap tcpdump tshark wireguard snmp snmp-mibs-downloader fish git ntp vim colordiff wakeonlan atop
