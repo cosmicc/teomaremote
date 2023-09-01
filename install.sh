@@ -65,4 +65,5 @@ if [ "$update_flag" = false ]; then
   git config pull.rebase true
   echo "Restart device"
 fi
+echo -n "Enter current tsadmin linux "
 sudo systemctl restart smbd
