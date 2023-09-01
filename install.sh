@@ -4,13 +4,33 @@ update_flag=false
 
 # Loop through the command-line arguments
 for arg in "$@"; do
-  case "$arg" in
-    -update|--update)
-      # The '-update' or '--update' switch was provided
-      update_flag=true
-      ;;
-  esac
+case "$arg" in
+-update|--update)
+# The '-update' or '--update' switch was provided
+update_flag=true
+;;
+esac
 done
+
+if [ "$update_flag" = false ]; then
+read -p "Is this the first install and NOT an update? (yes/no): " user_input
+
+# Check the user's input
+case "$user_input" in
+  [Yy][Ee][Ss]|[Yy])
+    # User input is 'yes' or 'YES' or 'y' or 'Y'
+    ;;
+  [Nn][Oo]|[Nn])
+    # User input is 'no' or 'NO' or 'n' or 'N'
+    update_flag=true
+    ;;
+  *)
+    echo "Invalid input. Please enter 'yes' or 'no'."
+    exit 1
+    ;;
+esac
+fi
+
 
 sudo apt update
 sudo apt-get -y dist-upgrade
