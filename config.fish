@@ -8,9 +8,9 @@ alias cpv='rsync -ah --info=progress2'
 alias sha1='openssl sha1'
 alias diff='colordiff'
 alias mount='mount |column -t'
-alias now='date +"%T"'
+alias now='date +"%r"'
 alias nowtime=now
-alias nowdate='date +"%d-%m-%Y"'
+alias nowdate='date +"%A, %B %d, %Y (%D)"'
 alias vi=vim
 alias ports='netstat -tulanp'
 alias c='clear'
