@@ -49,7 +49,6 @@ if [ "$update_flag" = false ]; then
   chmod +x ~/datto_install.sh
 fi
 chsh -s $(which fish)
-echo -n "Enter current tsadmin linux "
 sudo cp smb.conf /etc/samba/smb.conf
 cp connect_wifi.sh ~
 cp config.fish ~/.config/fish

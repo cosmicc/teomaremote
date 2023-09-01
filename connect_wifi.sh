@@ -17,18 +17,17 @@ read -s -p "Enter the PSK (password): " psk
 echo
 
 # Construct the contents of the file
-contents="country=us
-update_config=1
-ctrl_interface=/var/run/wpa_supplicant
+contents="
 
 network={
  scan_ssid=1
  ssid=\"$ssid\"
  psk=\"$psk\"
-}"
+}
+"
 
 # Write the contents to the file
-echo "$contents" > "$file_path"
+echo "$contents" >> "$file_path"
 
 # Provide some feedback
 if [ -e "$file_path" ]; then
