@@ -12,6 +12,7 @@ chmod +x ~/datto_install.sh
 chsh -s $(which fish)
 
 cp connect_wifi.sh ~
+cp config.fish ~/.config/fish
 chmod +x ~/connect_wifi.sh
 cd ~
 git clone https://github.com/rfmoz/tuptime.git
