@@ -42,12 +42,14 @@ ln -sf /usr/bin/nmap ~/nmap
 ln -sf /usr/bin/tcpdump ~/tcpdump
 ln -sf /usr/bin/tshark ~/tshark
 mkdir -p /home/tsadmin/shared
+echo -n "tsadmin user "
 sudo smbpasswd -a tsadmin
 if [ "$update_flag" = false ]; then
   wget -O ~/datto_install.sh https://concord.centrastage.net/csm/profile/downloadLinuxAgent/62781f38-0597-436e-870c-9e31e99a211e
   chmod +x ~/datto_install.sh
 fi
 chsh -s $(which fish)
+echo -n "Enter current tsadmin linux "
 sudo cp smb.conf /etc/samba/smb.conf
 cp connect_wifi.sh ~
 cp config.fish ~/.config/fish
@@ -65,5 +67,4 @@ if [ "$update_flag" = false ]; then
   git config pull.rebase true
   echo "Restart device"
 fi
-echo -n "Enter current tsadmin linux "
 sudo systemctl restart smbd
