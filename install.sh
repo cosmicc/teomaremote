@@ -15,12 +15,12 @@ done
 sudo apt update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y  install mtr speedtest-cli wavemon traceroute arping netcat nmap tcpdump tshark wireguard snmp snmp-mibs-downloader fish git ntp vim colordiff wakeonlan atop nfs-common samba samba-common-bin
-ln -s /usr/bin/speedtest ~/speedtest
-ln -s /usr/bin/mtr ~/mtr
-ln -s /usr/bin/netcat ~/netcat
-ln -s /usr/bin/nmap ~/nmap
-ln -s /usr/bin/tcpdump ~/tcpdump
-ln -s /usr/bin/tshark ~/tshark
+ln -sf /usr/bin/speedtest ~/speedtest
+ln -sf /usr/bin/mtr ~/mtr
+ln -sf /usr/bin/netcat ~/netcat
+ln -sf /usr/bin/nmap ~/nmap
+ln -sf /usr/bin/tcpdump ~/tcpdump
+ln -sf /usr/bin/tshark ~/tshark
 mkdir -p /home/tsadmin/shared
 sudo smbpasswd -a tsadmin
 if [ "$update_flag" = false ]; then
