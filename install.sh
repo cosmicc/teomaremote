@@ -70,4 +70,4 @@ if [ "$update_flag" = false ]; then
   echo "Restart device"
 fi
 sudo systemctl stop smbd
-sudo systemctl disable smdb
+sudo systemctl disable smbd
