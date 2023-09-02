@@ -50,6 +50,7 @@ if [ "$update_flag" = false ]; then
 fi
 chsh -s $(which fish)
 sudo cp smb.conf /etc/samba/smb.conf
+sudo cp motd /etc
 cp connect_wifi.sh ~
 cp config.fish ~/.config/fish
 cp enable_share.sh ~
