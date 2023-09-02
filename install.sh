@@ -52,6 +52,8 @@ chsh -s $(which fish)
 sudo cp smb.conf /etc/samba/smb.conf
 cp connect_wifi.sh ~
 cp config.fish ~/.config/fish
+cp enable_share.sh ~
+chmod +x ~/enable_share.sh
 chmod +x ~/connect_wifi.sh
 cd ~
 if [ "$update_flag" = false ]; then
@@ -66,4 +68,5 @@ if [ "$update_flag" = false ]; then
   git config pull.rebase true
   echo "Restart device"
 fi
-sudo systemctl restart smbd
+sudo systemctl stop smbd
+sudo systemctl disable smdb
