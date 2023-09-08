@@ -69,5 +69,7 @@ if [ "$update_flag" = false ]; then
   git config pull.rebase true
   echo "Restart device"
 fi
+sudo systemctl stop nmbd
 sudo systemctl stop smbd
+sudo systemctl disable nmbd
 sudo systemctl disable smbd
