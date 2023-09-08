@@ -88,3 +88,5 @@ sudo chmod +x /opt/microsoft/powershell/7/pwsh
 
 # Create the symbolic link that points to pwsh
 sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
+
+sudo ln -s /usr/bin/pwsh /usr/bin/powershell
