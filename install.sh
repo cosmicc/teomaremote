@@ -34,7 +34,7 @@ fi
 
 sudo apt update
 sudo apt-get -y dist-upgrade
-sudo apt-get -y  install mtr speedtest-cli wavemon traceroute arping netcat nmap tcpdump tshark wireguard snmp snmp-mibs-downloader fish git ntp vim colordiff wakeonlan atop nfs-common samba samba-common-bin
+sudo apt-get -y  install mtr speedtest-cli wavemon traceroute arping netcat nmap tcpdump tshark wireguard snmp snmp-mibs-downloader fish git ntp vim colordiff wakeonlan atop nfs-common samba samba-common-bin arpwatch
 ln -sf /usr/bin/speedtest ~/speedtest
 ln -sf /usr/bin/mtr ~/mtr
 ln -sf /usr/bin/netcat ~/netcat
