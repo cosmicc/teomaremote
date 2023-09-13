@@ -98,7 +98,7 @@ sudo apt autoremove -y
 sudo echo "if $programname == 'arpwatch' and $msg contains 'sent bad hardware format' then ~" >> /etc/rsyslog.conf
 sudo echo "if $programname == 'arpwatch' and $msg contains 'execl: /usr/lib/sendmail: No such file or directory' then ~" >> /etc/rsyslog.conf
 sudo echo "if $programname == 'arpwatch' and $msg contains 'reaper' then ~" >> /etc/rsyslog.conf
-sudo echo "if $programname == 'arpwatch' then /home/tsadmin/arpwatch.log
+sudo echo "if $programname == 'arpwatch' then /home/tsadmin/arpwatch.log" >> /etc/rsyslog.conf
 sudo echo "if if $programname == 'arpwatch' then ~" >> /etc/rsyslog.conf
 
 touch /home/tsadmin/arpwatch.log
@@ -106,4 +106,6 @@ chmod 666 /home/tsadmin/arpwatch.log
 
 ln -s /home/tsadmin/arpwatch_macs /var/lib/arpwatch
 
-sudi systemctl restart rsyslog
+sudo systemctl enable arpwatch
+sudo systemctl restart arpwatch
+sudo systemctl restart rsyslog
