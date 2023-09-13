@@ -57,7 +57,7 @@ chmod +x /home/tsadmin/enable_share.sh
 chmod +x /home/tsadmin/connect_wifi.sh
 cd /home/tsadmin
 if [ "$update_flag" = false ]; then
-  git clone https://github.com/rfmoz/tuptime.git
+  sudo -u tsadmin git clone https://github.com/rfmoz/tuptime.git
   cd tuptime
   chmod +x tuptime-install.sh
   sudo bash tuptime-install.sh
@@ -69,15 +69,15 @@ if [ "$update_flag" = false ]; then
   echo "Restart device"
 fi
 cd /home/tsadmin/tuptime
-git config pull.rebase false
-git pull
+sudo -u tsadmin git config pull.rebase false
+sudo -u tsadmin git pull
 sudo systemctl stop nmbd
 sudo systemctl stop smbd
 sudo systemctl disable nmbd
 sudo systemctl disable smbd
 
 # Download the powershell '.tar.gz' archive
-curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.3.6/powershell-7.3.6-linux-arm64.tar.gz
+sudo -u tsadmin curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.3.6/powershell-7.3.6-linux-arm64.tar.gz
 
 # Create the target folder where powershell will be placed
 sudo mkdir -p /opt/microsoft/powershell/7
