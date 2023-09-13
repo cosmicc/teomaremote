@@ -42,8 +42,6 @@ ln -sf /usr/bin/nmap ~/nmap
 ln -sf /usr/bin/tcpdump ~/tcpdump
 ln -sf /usr/bin/tshark ~/tshark
 mkdir -p /home/tsadmin/shared
-echo -n "tsadmin user "
-sudo smbpasswd -a tsadmin
 if [ "$update_flag" = false ]; then
   wget -O ~/datto_install.sh https://concord.centrastage.net/csm/profile/downloadLinuxAgent/62781f38-0597-436e-870c-9e31e99a211e
   chmod +x ~/datto_install.sh
@@ -54,6 +52,8 @@ sudo cp motd /etc
 cp connect_wifi.sh ~
 cp config.fish ~/.config/fish
 cp enable_share.sh ~
+cp update_tsadmin_smb_pw.sh ~
+chmod +x ~/update_tsadmin_smp_pw.sh
 chmod +x ~/enable_share.sh
 chmod +x ~/connect_wifi.sh
 cd ~
@@ -69,6 +69,9 @@ if [ "$update_flag" = false ]; then
   git config pull.rebase true
   echo "Restart device"
 fi
+cd /home/tsadmin/tuptime
+git config pull.rebase false
+git pull
 sudo systemctl stop nmbd
 sudo systemctl stop smbd
 sudo systemctl disable nmbd
