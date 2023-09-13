@@ -31,32 +31,31 @@ case "$user_input" in
 esac
 fi
 
-
 sudo apt update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y  install mtr speedtest-cli wavemon traceroute arping netcat nmap tcpdump tshark wireguard snmp snmp-mibs-downloader fish git ntp vim colordiff wakeonlan atop nfs-common samba samba-common-bin arpwatch
-ln -sf /usr/bin/speedtest ~/speedtest
-ln -sf /usr/bin/mtr ~/mtr
-ln -sf /usr/bin/netcat ~/netcat
-ln -sf /usr/bin/nmap ~/nmap
-ln -sf /usr/bin/tcpdump ~/tcpdump
-ln -sf /usr/bin/tshark ~/tshark
+ln -sf /usr/bin/speedtest /home/tsadmin/speedtest
+ln -sf /usr/bin/mtr /home/tsadmin/mtr
+ln -sf /usr/bin/netcat /home/tsadmin/netcat
+ln -sf /usr/bin/nmap /home/tsadmin/nmap
+ln -sf /usr/bin/tcpdump /home/tsadmin/tcpdump
+ln -sf /usr/bin/tshark /home/tsadmin/tshark
 mkdir -p /home/tsadmin/shared
 if [ "$update_flag" = false ]; then
-  wget -O ~/datto_install.sh https://concord.centrastage.net/csm/profile/downloadLinuxAgent/62781f38-0597-436e-870c-9e31e99a211e
-  chmod +x ~/datto_install.sh
+  wget -O /home/tsadmin/datto_install.sh https://concord.centrastage.net/csm/profile/downloadLinuxAgent/62781f38-0597-436e-870c-9e31e99a211e
+  chmod +x /home/tsadmin/datto_install.sh
 fi
 chsh -s $(which fish)
 sudo cp smb.conf /etc/samba/smb.conf
 sudo cp motd /etc
-cp connect_wifi.sh ~
-cp config.fish ~/.config/fish
-cp enable_share.sh ~
-cp update_tsadmin_smb_pw.sh ~
-chmod +x ~/update_tsadmin_smp_pw.sh
-chmod +x ~/enable_share.sh
-chmod +x ~/connect_wifi.sh
-cd ~
+cp connect_wifi.sh /home/tsadmin
+cp config.fish /home/tsadmin/.config/fish
+cp enable_share.sh /home/tsadmin
+cp update_tsadmin_smb_pw.sh /home/tsadmin
+chmod +x /home/tsadmin/update_tsadmin_smb_pw.sh
+chmod +x /home/tsadmin/enable_share.sh
+chmod +x /home/tsadmin/connect_wifi.sh
+cd /home/tsadmin
 if [ "$update_flag" = false ]; then
   git clone https://github.com/rfmoz/tuptime.git
   cd tuptime
@@ -93,3 +92,5 @@ sudo chmod +x /opt/microsoft/powershell/7/pwsh
 sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 
 sudo ln -s /usr/bin/pwsh /usr/bin/powershell
+
+sudo apt autoremove
