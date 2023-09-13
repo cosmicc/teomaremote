@@ -93,4 +93,4 @@ sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 
 sudo ln -s /usr/bin/pwsh /usr/bin/powershell
 
-sudo apt autoremove
+sudo apt autoremove -y
