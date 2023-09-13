@@ -45,7 +45,7 @@ if [ "$update_flag" = false ]; then
   wget -O /home/tsadmin/datto_install.sh https://concord.centrastage.net/csm/profile/downloadLinuxAgent/62781f38-0597-436e-870c-9e31e99a211e
   chmod +x /home/tsadmin/datto_install.sh
 fi
-chsh -s $(which fish)
+chsh -s $(which fish) tsadmin
 sudo cp smb.conf /etc/samba/smb.conf
 sudo cp motd /etc
 cp connect_wifi.sh /home/tsadmin
