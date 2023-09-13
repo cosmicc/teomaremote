@@ -52,6 +52,7 @@ cp connect_wifi.sh /home/tsadmin
 cp config.fish /home/tsadmin/.config/fish
 cp enable_share.sh /home/tsadmin
 cp update_tsadmin_smb_pw.sh /home/tsadmin
+cp arp_logrotate.conf /home/tsadmin
 chmod +x /home/tsadmin/update_tsadmin_smb_pw.sh
 chmod +x /home/tsadmin/enable_share.sh
 chmod +x /home/tsadmin/connect_wifi.sh
@@ -95,17 +96,17 @@ sudo ln -s /usr/bin/pwsh /usr/bin/powershell
 
 sudo apt autoremove -y
 
-sudo echo "if $programname == 'arpwatch' and $msg contains 'sent bad hardware format' then ~" >> /etc/rsyslog.conf
-sudo echo "if $programname == 'arpwatch' and $msg contains 'execl: /usr/lib/sendmail: No such file or directory' then ~" >> /etc/rsyslog.conf
-sudo echo "if $programname == 'arpwatch' and $msg contains 'reaper' then ~" >> /etc/rsyslog.conf
-sudo echo "if $programname == 'arpwatch' then /home/tsadmin/arpwatch.log" >> /etc/rsyslog.conf
-sudo echo "if if $programname == 'arpwatch' then ~" >> /etc/rsyslog.conf
+sudo echo "if \$programname == 'arpwatch' and $msg contains 'sent bad hardware format' then ~" >> /etc/rsyslog.conf
+sudo echo "if \$programname == 'arpwatch' and $msg contains 'execl: /usr/lib/sendmail: No such file or directory' then ~" >> /etc/rsyslog.conf
+sudo echo "if \$programname == 'arpwatch' and $msg contains 'reaper' then ~" >> /etc/rsyslog.conf
+sudo echo "if \$programname == 'arpwatch' then /home/tsadmin/arpwatch.log" >> /etc/rsyslog.conf
+sudo echo "if \$programname == 'arpwatch' then ~" >> /etc/rsyslog.conf
 
 touch /home/tsadmin/arpwatch.log
 chmod 666 /home/tsadmin/arpwatch.log
 
-ln -s /home/tsadmin/arpwatch_macs /var/lib/arpwatch
+ln -s /var/lib/arpwatch /home/tsadmin/arpwatch_macs
 
 sudo systemctl enable arpwatch
 sudo systemctl restart arpwatch
-sudo systemctl restart rsyslog
+sudo systemctl restart rsyslog 
