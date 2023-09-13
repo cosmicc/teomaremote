@@ -94,3 +94,16 @@ sudo ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 sudo ln -s /usr/bin/pwsh /usr/bin/powershell
 
 sudo apt autoremove -y
+
+sudo echo "if $programname == 'arpwatch' and $msg contains 'sent bad hardware format' then ~" >> /etc/rsyslog.conf
+sudo echo "if $programname == 'arpwatch' and $msg contains 'execl: /usr/lib/sendmail: No such file or directory' then ~" >> /etc/rsyslog.conf
+sudo echo "if $programname == 'arpwatch' and $msg contains 'reaper' then ~" >> /etc/rsyslog.conf
+sudo echo "if $programname == 'arpwatch' then /home/tsadmin/arpwatch.log
+sudo echo "if if $programname == 'arpwatch' then ~" >> /etc/rsyslog.conf
+
+touch /home/tsadmin/arpwatch.log
+chmod 666 /home/tsadmin/arpwatch.log
+
+ln -s /home/tsadmin/arpwatch_macs /var/lib/arpwatch
+
+sudi systemctl restart rsyslog
