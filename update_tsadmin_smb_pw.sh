@@ -5,5 +5,9 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-echo -n "tsadmin user "
-smbpasswd -a tsadmin
+if [ -n "$1" ]; then
+    echo -e $1 | smbpasswd -s -a tsadmin
+else
+    echo -n "tsadmin user "
+    smbpasswd -a tsadmin
+fi
