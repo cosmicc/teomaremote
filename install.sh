@@ -76,6 +76,10 @@ sudo systemctl stop nmbd
 sudo systemctl stop smbd
 sudo systemctl disable nmbd
 sudo systemctl disable smbd
+mkdir /home/tsadmin/nmap_scans
+mkdir /home/tsadmin/wifi_scans
+chown tsadmin.tsadmin /home/tsadmin/nmap_scans
+chown tsadmin.tsadmin /home/tsadmin/wifi_scans
 
 # Download the powershell '.tar.gz' archive
 sudo -u tsadmin curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.3.6/powershell-7.3.6-linux-arm64.tar.gz
