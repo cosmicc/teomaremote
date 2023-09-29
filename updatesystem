@@ -8,6 +8,6 @@ current_date=$(date +%m-%d-%Y)
 
 XMLPath=$(find /root/.mono/registry -name "values.xml")
 XMLTemp=$(cat $XMLPath | grep -v "</values>")
-XMLTemp="$XMLTemp"$'\n'"<value name=\"Custom27\" type=\"string\">Last Update: $current_date</value>"$'\n'"</values>"
+XMLTemp="$XMLTemp"$'\n'"<value name=\"Custom27\" type=\"string\">Last System Update: $current_date</value>"$'\n'"</values>"
 rm $XMLPath
 echo "$XMLTemp" >> $XMLPath
