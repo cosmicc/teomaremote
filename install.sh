@@ -54,10 +54,12 @@ cp enable_share.sh /home/tsadmin
 cp update_tsadmin_smb_pw.sh /home/tsadmin
 cp arp_logrotate.conf /home/tsadmin
 cp isplocation.sh /home/tsadmin
+cp updatesystem /home/tsadmin
 chmod +x /home/tsadmin/update_tsadmin_smb_pw.sh
 chmod +x /home/tsadmin/enable_share.sh
 chmod +x /home/tsadmin/connect_wifi.sh
 chmod +x /home/tsadmin/isplocation.sh
+chmod +x /home/tsadmin/updatesystem
 cd /home/tsadmin
 if [ "$update_flag" = false ]; then
   sudo -u tsadmin git clone https://github.com/rfmoz/tuptime.git
