@@ -30,4 +30,5 @@ alias du='du -ch'
 alias top='atop'
 alias bitdefender='sudo bitdefender'
 alias scannfull='sudo bitdefender scan -s full'
+alias scan='sudo bitdefender scan -s custom'
 set fish_greeting ""
