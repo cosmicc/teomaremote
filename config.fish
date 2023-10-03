@@ -28,4 +28,6 @@ alias wget='wget -c'
 alias df='df -H'
 alias du='du -ch'
 alias top='atop'
+alias bitdefender='sudo bitdefender'
+alias scannfull='sudo bitdefender scan -s full'
 set fish_greeting ""
