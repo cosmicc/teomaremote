@@ -48,6 +48,8 @@ fi
 chsh -s $(which fish) tsadmin
 sudo cp smb.conf /etc/samba/smb.conf
 sudo cp motd /etc
+sudo ln -s /opt/bitdefender-security-tools/bin/bduitool /usr/local/bin/bitdefender
+ln -s /opt/bitdefender-security-tools/bin/bduitool /home/tsadmin/bitdefender
 cp connect_wifi.sh /home/tsadmin
 cp config.fish /home/tsadmin/.config/fish
 cp enable_share.sh /home/tsadmin
